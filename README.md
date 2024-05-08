@@ -8,6 +8,12 @@
 
 ![image](images/cicdDiagram.png)
 
+1. Start with a change to the code we have already deployed (e.g. new login system)
+2. Use SSH to send the new code to Jenkins
+3. Use Jenkins to perform automated tests
+4. If the tests pass -> deliver the changes to our cloud provider, ready to deoply
+5. If the tests fail -> rewrite our code (go back to 1.)
+
 ## Webhooks
 
 A webhook is a way to automatically trigger actions in one system when something happens in another system
