@@ -102,6 +102,7 @@ We would like for our code to be automatically deployed (`run npm start`) when w
 
 Steps:
 1. Use Jenkins to SSH into our EC2 without user input (`yes`)
+   - To SSH in, we have to upload our private key for the EC2 instance to Jenkins
 2. Goto app folder
 3. Start the app in the background (if starting normally, Jenkins will crash)
 
