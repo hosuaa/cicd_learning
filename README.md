@@ -22,9 +22,13 @@ Think of a movie. Before coming to cinemas, a trailer may be released a few week
 - This is equivalent to delivering code. 
 - When the movie is released, this is equivalent to deploying the code. 
 
+When the code is delivered, after pushing we can e.g. manually start the app
+
+When the code is deployed, the app is automatically started when we push 
+
 ## CI/CD diagram
 
-![image](images/cicdDiagram.png)
+![image](images/Capture4.png)
 
 1. Start with a change to the code that we had already deployed (e.g. new login system) and upload it to GitHub
 2. Use SSH to send the new code to Jenkins
@@ -49,6 +53,9 @@ This is implemented using (webhook) api calls
 **Where**: CI/CD pipelines are commonly used in software development projects such as web applications and mobile apps
 
 ## Tutorial on automated testing with Jenkins and a webhook
+
+Here is a detailed step by step walkthrough on how to create a jenkins job for automated testing and connecting it to GitHub using a webhook.
+
 jenkins:
 
 1. create job (named joshual-ci)
@@ -59,6 +66,9 @@ paste https link in project url
 1. tick 'restrict where this project can be run' and type sp, choose the option. there will be an error but just backspace and enter it again
 2. for version control, select git and paste the ssh link to the repo (error will show)
 3. click add key, select jenkins and give credentials, change kind to ssh username with private key, give username, and paste private key in
+
+![alt text](image-2.png)
+
 4. tick provide node & npm bin to PATH
 5. build step: 
    1.  execute shell: 
@@ -67,11 +77,17 @@ paste https link in project url
    4.  npm install
    5.  npm test
 
+![alt text](image.png)
+
 webhook:
 1. goto app repo, settings, webhook and add webhook
 2. call it http://3.9.14.9:8080/github-webhook/ (the link to jenkins plus the /github-webhook/
 3. make it work on push requests
 4. now onto jenkins, configure the project and tick github hook trigger
+
+![alt text](image-3.png)
+
+![alt text](image-1.png)
 
 ![image](images/2024_05_09_0kl_Kleki.png)
 
@@ -82,8 +98,15 @@ Never code on main branch: code on your teams branch or your own one.
 
 Steps:
 1. Create a dev branch using `git checkout`
+
+![alt text](image-4.png)
+
 2. Make a change locally and push to GitHub
 3. Using the testing job we created, if tests pass, trigger the next job to merge the code from your branch (`dev`) to `main`
+
+![alt text](image-5.png)
+
+![alt text](image-6.png)
 
 ![image](images/2024_05_09_0ko_Kleki.png)
 
@@ -113,9 +136,11 @@ Steps:
 2. Goto app folder
 3. Start the app in the background (if starting normally, Jenkins will crash)
 
+![image](images/2024_05_09_0kv_Kleki.png)
+
 We can run these jobs one after the other to complete the CI/CD pipeline
 
-![image](images/2024_05_09_0kv_Kleki.png)
+![image](images/test_merge_0.png)
 
 
 
