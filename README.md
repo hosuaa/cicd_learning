@@ -73,6 +73,7 @@ webhook:
 3. make it work on push requests
 4. now onto jenkins, configure the project and tick github hook trigger
 
+![image](images/2024_05_09_0kl_Kleki.png)
 
 ## CI Pipeline with Jenkins and GitHub
 
@@ -83,6 +84,9 @@ Steps:
 1. Create a dev branch using `git checkout`
 2. Make a change locally and push to GitHub
 3. Using the testing job we created, if tests pass, trigger the next job to merge the code from your branch (`dev`) to `main`
+
+![image](images/2024_05_09_0ko_Kleki.png)
+
 
 ## Continuous delivery with Jenkins
 
@@ -96,6 +100,9 @@ Steps:
 
 Now we can SSH in to our EC2 instance and manually install and start the app
 
+![image](images/2024_05_09_0ks_Kleki.png)
+
+
 ## Continuous deployment with Jenkins
 
 We would like for our code to be automatically deployed (`run npm start`) when we push
@@ -107,6 +114,8 @@ Steps:
 3. Start the app in the background (if starting normally, Jenkins will crash)
 
 We can run these jobs one after the other to complete the CI/CD pipeline
+
+![image](images/2024_05_09_0kv_Kleki.png)
 
 
 
