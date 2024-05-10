@@ -91,6 +91,10 @@ webhook:
 
 ![image](images/2024_05_09_0kl_Kleki.png)
 
+IMPORTANT: You don't want too many builds, or else the server can become overloaded and slow down/break. It's good to set a maximum number of builds for each job.
+
+![alt text](image-7.png)
+
 ## CI Pipeline with Jenkins and GitHub
 
 Never code on main branch: code on your teams branch or your own one.
@@ -125,6 +129,24 @@ Now we can SSH in to our EC2 instance and manually install and start the app
 
 ![image](images/2024_05_09_0ks_Kleki.png)
 
+Remember get the code from main, as its tested
+
+![alt text](image-8.png)
+
+Also provide node to PATH and an SSH agent so you can SSH into the EC2 instance
+
+![alt text](image-9.png)
+
+- Use `StrictHostKeyChecking=no` to avoid user input when SSHing in.
+- `rsync` copies the files over 
+- `provision.sh` contains most of the dependencies
+- We can now manually SSH in. We have to also install `npm` and `pm2`
+  - `sudo apt install npm`
+  - `sudo npm install pm2@2.6.0 -g`
+  - This could be ran in the script too
+- Now simply cd to app, then `pm2 start app.js` to start the app in the background
+  
+![alt text](image-10.png)
 
 ## Continuous deployment with Jenkins
 
