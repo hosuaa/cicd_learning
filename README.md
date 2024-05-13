@@ -160,6 +160,14 @@ Steps:
 
 ![image](images/2024_05_09_0kv_Kleki.png)
 
+First, set up the job as a standalone job by copying the app code over (delivery) then deploying it (cd in, npm install, npm start)
+
+The prerequisites are similar to the first other job
+
+Make sure to run the process in the background, or else Jenkins will crash
+
+![alt text](image-12.png)
+
 We can run these jobs one after the other to complete the CI/CD pipeline
 
 ![image](images/test_merge_0.png)
